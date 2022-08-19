@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+
+<body style="width: 100%;height: 100%;background-image:url(3.jpg);background-size: 100%;background-repeat:no-repeat;">
+    <h1 style="color: white;text-align: center;opacity:0.7;margin-top:10%">
+        我和梁嘉欣在一起已经
+    </h1>
+    <h2 style=" color: white;padding-top:0;text-align: center;opacity:0.7;font-size: 30px; "></h2>
+    <script>
+        let h2 = document.querySelector('h2');
+
+        function showTime() {
+            let nowTime = new Date(); //获取当前时间
+            let setTime = new Date('2022/2/6'); //设置结束时间
+
+            let remianAllSeconds = Math.floor((nowTime.getTime() - setTime.getTime()) / 1000); //剩余总秒数
+            let remainDays = Math.floor(remianAllSeconds / (60 * 60 * 24)); //剩余天数 
+            let remainHours = Math.floor(remianAllSeconds / (60 * 60) % 24); //剩余小时数
+            let remainMinutes = Math.floor(remianAllSeconds / 60 % 60); //剩余分钟数
+            let remainSeconds = Math.floor(remianAllSeconds % 60); //剩余秒数
+            let str = `\n${remainDays}天${remainHours}小时${remainMinutes}分钟${remainSeconds}秒`
+            return str;
+        }
+        setInterval(function() {
+            h2.innerHTML = showTime();
+        })
+    </script>
+
+</body>
+
+</html>
